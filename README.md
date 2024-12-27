@@ -83,35 +83,42 @@ jupyter notebook main.ipynb
 
 <p>Make sure to execute the cells line by line, as the notebook is designed to guide you through the process step by step.</p>
 
-<h2>Testing with Images from the Web</h2>
-
-<p>You can test the model with any image from the Internet by providing its URL. Below is an example of how to do this using Python:</p>
-
-<pre>
-# (Código omitido para cargar imágenes desde la URL)
-</pre>
-
-<p>Replace the <code>url</code> variable with the URL of the image you want to classify. The model will load the image, process it, and display the prediction.</p>
-
 <h2>Training Loss and Accuracy Graphs</h2>
 
 <p>During the training process, it is crucial to monitor the loss and accuracy to evaluate the model's performance. The following graphs will be generated:</p>
 
+<img src="loss.png" alt="Upper Graph" style="max-width: 100%; height: auto;">
+
+<strong>Upper Graph: Loss during Training and Validation</strong>
+
 <ul>
-    <li><strong>Training and Validation Loss:</strong> This graph shows the loss values for both the training and validation datasets over each epoch. A decreasing trend in both curves indicates that the model is learning. If the training loss decreases while the validation loss starts to increase, it may suggest overfitting.</li>
-    <li><strong>Training and Validation Accuracy:</strong> This graph depicts the accuracy for the training and validation datasets over each epoch. An increasing trend in both curves indicates that the model is improving its classification performance. Ideally, both curves should converge towards a high accuracy value.</li>
+    <li>This graph shows the model's loss over epochs for both the training and validation sets.</li>
+    <li>The blue line represents the loss during training, while the orange line represents the loss in validation.</li>
 </ul>
 
-<!-- Imagen de ejemplo para la gráfica de pérdida -->
-<img src="loss_graph_example.png" alt="Training and Validation Loss Graph" style="max-width: 100%; height: auto;">
+<p>In the early epochs, loss in training decreases rapidly, which is a good sign that the model is learning from the data. From the fourth epoch, both training and validation loss are stabilized, indicating that the model has reached a point where performance does not improve significantly.</p>
 
-<!-- Imagen de ejemplo para la gráfica de precisión -->
-<img src="accuracy_graph_example.png" alt="Training and Validation Accuracy Graph" style="max-width: 100%; height: auto;">
+<img src="acurrancy.png" alt="Lower Graph" style="max-width: 100%; height: auto;">
+
+<strong>Lower Graph: Accuracy during Training and Validation</strong>
+
+<ul>
+    <li>This graph shows the model's accuracy on the training and validation sets across epochs.</li>
+    <li>The blue line represents the accuracy during training, while the orange line represents the accuracy in validation.</li>
+</ul>
+
+<p>Accuracy in both sets (training and validation) increases significantly in the early epochs, indicating that the model is improving rapidly. However, after a certain point, both training and validation accuracies seem to stabilize, suggesting that the model has reached its maximum generalization capacity for both the validation and training data.</p>
+
+<p>In conclusion, the model performs well in both training and validation. The loss decreases rapidly, and the accuracy increases steadily.</p>
 
 <h2>Confusion Matrix</h2>
 
-<p>The confusion matrix provides a comprehensive overview of the model's performance, illustrating the true positive, false positive, true negative, and false negative predictions for each class. This allows for an easy evaluation of how well the model is classifying each fruit type.</p>
+<p>A <strong>confusion matrix</strong> is a table used to evaluate the performance of a classification model. Each row represents the actual class, while each column represents the predicted class. The values in the cells indicate how many instances were classified into the corresponding predicted class.</p>
 
-<!-- Imagen de ejemplo para la matriz de confusión -->
-<img src="confusion_matrix_example.png" alt="Confusion Matrix" style="max-width: 100%; height: auto;">
+<ul>
+    <li><strong>Diagonal elements:</strong> These represent the number of correct predictions for each class. For example, the cell at (Apple, Apple) shows 51, which means that 51 instances of the "Apple" class were correctly predicted as "Apple."</li>
+    <li><strong>Elements outside the diagonal:</strong> These represent misclassifications. For example, the cell at (Apple, Avocado) shows 2, which means that 2 instance of the "Apple" class was incorrectly classified as "Avocado."</li>
+<ul>
+
+<img src="confusion-Matrix.png" alt="Confusion Matrix" style="max-width: 100%; height: auto;">
 
